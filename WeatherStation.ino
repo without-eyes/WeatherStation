@@ -1,5 +1,6 @@
 #include <dht.h>
 #define DHT11_PIN 7
+#define PHOTORESISTOR_PIN A0
 
 dht DHT;
 
@@ -8,10 +9,15 @@ void setup() {
 }
 
 void loop() {
-  int chk = DHT.read11(DHT11_PIN);
-  Serial.print("Temperature = ");
+  DHT.read11(DHT11_PIN);
+  Serial.print("DHT: Temperature = ");
   Serial.print(DHT.temperature);
   Serial.print(";   Humidity = ");
   Serial.println(DHT.humidity);
-  delay(10000);
+
+  int brightness = analogRead(A0);
+  Serial.print("Photoresistor: brightness = ");
+  Serial.println(brightness);
+
+  delay(2000);
 }
