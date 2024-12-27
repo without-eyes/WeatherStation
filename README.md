@@ -1,1 +1,1 @@
-![Schematic diagram](WeatherStation.png)
+![Schematic diagram](scheme.png)
