@@ -1,6 +1,6 @@
 #include "WiFiEsp.h"
 #define HTTP_PORT 80
-#define TIME_TO_REFRESH_IN_SECS 60
+#define TIME_TO_REFRESH_IN_SECS 10
 
 WiFiEspServer server(HTTP_PORT);
 int status = WL_IDLE_STATUS;
@@ -60,19 +60,19 @@ void sendHeader(WiFiEspClient client) {
 }
 
 void sendHtmlPage(WiFiEspClient client) {
-  readFromDHT();
+  struct WeatherData weatherData = getCurrentWeatherData();
   client.print("<!DOCTYPE HTML>\r\n");
   client.print("<html>\r\n");
   client.print("DHT: Temperature = ");
-  client.print(DHT.temperature);
+  client.print(weatherData.temperature);
   client.print(";   Humidity = ");
-  client.print(DHT.humidity);
+  client.print(weatherData.humidity);
   client.print("<br>\r\n");
   client.print("Photoresistor: brightness = ");
-  client.print(getBrightness());
+  client.print(weatherData.brightness);
   client.print("<br>\r\n");
   client.print("Microphone: noise level = ");
-  client.print(getNoise());
+  client.print(weatherData.noise);
   client.print("<br>\r\n");
   client.print("</html>\r\n");
 }

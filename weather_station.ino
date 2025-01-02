@@ -12,7 +12,7 @@ void loop() {
   boolean currentLineIsBlank = true;
   while (client.connected()) {
     if (!client.available()) continue;
-
+    
     char c = client.read();
     Serial.write(c);
     if (c == '\n' && currentLineIsBlank) {
