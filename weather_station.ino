@@ -1,4 +1,5 @@
 #include "WiFiEsp.h"
+#include "weather_data.h"
 
 void setup() {
   Serial.begin(115200);
@@ -13,6 +14,11 @@ void loop() {
   while (client.connected()) {
     if (!client.available()) continue;
     
+    if (hasHourPassed()) {
+      WeatherData weatherData = getCurrentWeatherData();
+      saveWeatherDataInHistory(weatherData);
+    }
+
     char c = client.read();
     Serial.write(c);
     if (c == '\n' && currentLineIsBlank) {
