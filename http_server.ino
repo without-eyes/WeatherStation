@@ -67,8 +67,6 @@ void sendHtmlPage(WiFiEspClient client) {
 }
 
 String generateHtmlPage(WeatherData weatherData) {
-  String weatherCondition = "Sunny";
-
   String htmlPage = F(
     "<!DOCTYPE HTML>"
     "<html>"
@@ -94,7 +92,7 @@ String generateHtmlPage(WeatherData weatherData) {
     "<h2>Current Weather</h2>"
   );
 
-  htmlPage += "<div class='data'><strong>Condition:</strong> " + weatherCondition + "</div>";
+  htmlPage += "<div class='data'><strong>Condition:</strong> " + getWeatherCondition(weatherData) + "</div>";
   htmlPage += "<div class='data'><strong>Temperature</strong> = " + String(weatherData.temperature) + " \xB0""C</div>";
   htmlPage += "<div class='data'><strong>Humidity</strong> = " + String(weatherData.humidity) + "%</div>";
   htmlPage += "<div class='data'><strong>Brightness</strong> = " + String(weatherData.brightness) + " lux</div>";
