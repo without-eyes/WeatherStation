@@ -36,6 +36,10 @@ String getWeatherCondition(WeatherData weatherData) {
     weatherCondition += " and Dry";
   }
 
+  if (weatherData.humidity > 50 && weatherData.noise > 40) {
+    weatherCondition += " and Windy";
+  }
+
   if (weatherData.brightness > 200) {
     weatherCondition += " - Sunny";
   } else if (weatherData.brightness < 20) {
