@@ -17,7 +17,7 @@ String getHistoricalData() {
     if (history[i].timestamp == "") continue;
 
     historicalData += "<tr><td>" + history[i].timestamp + "</td><td>" 
-                      + String(history[i].temperature) + "°C</td><td>" 
+                      + String(history[i].temperature) + "\xB0""C</td><td>" 
                       + String(history[i].humidity) + "%</td><td>" 
                       + String(history[i].brightness) + " lux</td><td>" 
                       + String(history[i].noise) + " dB</td></tr>";
