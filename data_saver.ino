@@ -1,9 +1,7 @@
-#include <TimeLib.h>
 #include "weather_data.h"
 
 WeatherData getCurrentWeatherData() {
-  String timestamp = String(hour()) + ":" + String(minute()) + ":" + String(second()) + " " +
-                     String(day()) + "/" + String(month()) + "/" + String(year());
+  String timestamp = getCurrentTime();
   readFromDHT();
 
   WeatherData weatherData = {
