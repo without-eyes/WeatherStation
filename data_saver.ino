@@ -38,12 +38,14 @@ String getWeatherCondition(WeatherData weatherData) {
     weatherCondition += " and Windy";
   }
 
-  if (weatherData.brightness > 200) {
-    weatherCondition += " - Sunny";
-  } else if (weatherData.brightness < 20) {
-    weatherCondition += " - Cloudy";
-  } else {
-    weatherCondition += " - Partly Cloudy";
+  if (isDaytimeNow()) {
+    if (weatherData.brightness > 200) {
+      weatherCondition += " - Sunny";
+    } else if (weatherData.brightness < 20) {
+      weatherCondition += " - Cloudy";
+    } else {
+      weatherCondition += " - Partly Cloudy";
+    }
   }
 
   return weatherCondition;

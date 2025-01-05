@@ -50,3 +50,9 @@ String getCurrentTime() {
   return formatTwoDigits(now.day) + "/" + formatTwoDigits(now.month) + "/" + String(now.year) + " " +
          formatTwoDigits(now.hour) + ":" + formatTwoDigits(now.minute) + ":" + formatTwoDigits(now.second);
 }
+
+bool isDaytimeNow() {
+  Ds1302::DateTime now;
+  rtc.getDateTime(&now);
+  return now.hour > 7 && now.hour < 19 ? true : false;
+}
