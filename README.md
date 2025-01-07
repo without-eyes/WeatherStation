@@ -39,8 +39,9 @@ This project is a weather station built on Arduino Mega 2560 with a built-in ESP
    - ![`WiFiEsp`](https://github.com/bportaluri/WiFiEsp)
    - ![`DHT`](https://github.com/RobTillaart/DHTlib)
    - ![`DS1302`](https://github.com/msparks/arduino-ds1302)
-2. Upload the `WeatherStation.ino` sketch to the Arduino Mega.
-3. Modify the `ssid` and `pass` variables in the code to match your WiFi network credentials.
+2. ![Setup ESP8266](https://www.youtube.com/watch?v=E250CVUWNB0).
+3. Upload the `WeatherStation.ino` sketch to the Arduino Mega.
+4. Modify the `ssid` and `pass` variables in the code to match your WiFi network credentials.
 
 ## Usage
 1. Power on the system.
